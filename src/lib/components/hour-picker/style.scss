@@ -1,0 +1,202 @@
+@import '../variables';
+
+.hour__picker {
+  font-family: "Avenir Next W01","Lato",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background-color: $color-50;
+  color: $dark;
+  max-width: 768px;
+  // margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  * {
+    user-select: none;
+  }
+
+  button {
+    font-family: "Avenir Next W01","Lato",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    outline: transparent;
+    user-select: none;
+  }
+
+  &--main {
+    display: flex;
+  }
+
+  &--wrapper {  
+    // height: 300px;
+    // flex: 0 0 300px;
+    height: 300px;
+    min-height: 300px;
+    flex: 1;
+
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+  }
+
+  &--container {
+    --picker-value: 0;
+    touch-action: none;
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease-in-out;
+    &.dial-hours {
+      transform: translate(-50%, -50%) scale(1.2);
+      &.active {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    &.dial-minutes {
+      transform: translate(-50%, -50%) scale(0.8);
+      &.active {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &--display {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-600;
+    color: $color-50;
+    padding: 24px 0;
+
+    flex: 1;
+    justify-content: center;
+    &-values {
+      margin: 0 auto;
+      width: 220px;
+      height: 66px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      line-height: 48px;
+    }
+    &-value, &-middle {
+      font-size: 48px;
+      font-weight: 300;
+      color: $color-200;
+      letter-spacing: 0.07em;
+      user-select: none;
+      &.active {
+        color: $light;
+      }
+    }
+    &-value {
+      flex: 1;
+      display: flex;
+      padding: 0;
+      &.hours {
+        text-align: right;
+        justify-content: flex-end;
+      }
+      &.minutes {
+        text-align: left;
+        justify-content: flex-start;
+      }
+    }
+    &-middle {
+      margin: 0px 5px;
+      margin-top: -8px;
+    }
+  }
+
+  &--ampm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+    &-am, &-pm {
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 22px;
+      color: $color-200;
+      background-color: $color-600;
+      &.active {
+        color: $light;
+      }
+    }
+  }
+
+  &--bg {
+     fill: $light;
+  }
+
+  &--num {
+    cursor: pointer;
+    transition: all .75s ease-in-out;
+    &-text {
+      font-size: 22px;
+      font-weight: 400;
+      fill: $dark;;
+      text-anchor: middle;
+      user-select: none;
+      cursor: pointer;
+    }
+    &-bg {
+      opacity: 0.5;
+      fill: rgba($color: #fff, $alpha: 0.25);
+      fill-rule: evenodd;
+    }
+  }
+
+  &--middle {
+    stroke: $color-200;
+    fill: #D8D8D8;
+  }
+
+  &--selector {
+    transform: rotate(var(--picker-value));
+    transform-origin: center;
+    &-middle {
+      fill: $color-200;
+    }
+    &-circle {
+      fill: $color-50;
+      transition: all .75s ease-in-out;
+    }
+    &-circle-inner {
+      fill: $color-200;
+    }
+    &-line {
+      stroke: $color-200;
+      stroke-width: 2;
+      stroke-linecap: round;
+      transition: all .75s ease-in-out;
+    }
+  }
+
+  &--controls {
+    display: flex;
+    border-top: 1px solid #ccc;
+    &-control {
+      flex: 1;
+      padding: 24px 32px;
+      border: 0;
+      appearance: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hour__picker--main {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,115 @@
+@import '../variables';
+
+$color-50: rgb(232, 234, 246);
+
+.scrollpicker {
+  font-family: "Avenir Next W01","Lato",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-50;
+  flex-direction: column;
+  transition: background-color .2s ease-in-out;
+  &.scrollpicker__full {
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+  &.scrollpicker__mobile {
+    &:active {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+  &__main {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  &__wrapper, &__header, &__footer {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+  &__header, &__footer {
+    background-color: $color-50;
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__header {
+    border-bottom: 1px solid $color-100;
+  }
+  &__footer {
+    border-top: 1px solid $color-100;
+  }
+  &__container {
+    width: 100%;
+    overflow: visible;
+    height: 60px;
+    // background-color: $color-100;
+    border-top: 1px solid $color-100;
+    border-bottom: 1px solid $color-100;
+    position: relative;
+  }
+  &__body {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  &__pick {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgba(255, 255, 255, 0.8);
+    user-select: none;
+    cursor: pointer;
+  }
+  &__overlay {
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    &.overlay-top {
+      top: 0;
+      background: linear-gradient(180deg, rgba(232, 234, 246, 1) 10%,  rgba(232, 234, 246, 0) 100%);
+    }
+    &.overlay-bottom {
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(232, 234, 246, 1) 10%,  rgba(232, 234, 246, 0) 100%);
+    }
+  }
+  &__title, &__control {
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    user-select: none;
+    font-size: 1rem;
+    // text-transform: uppercase;
+  }
+  &__control {
+    height: 100%;
+    font-family: "Avenir Next W01","Lato",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    outline: transparent;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+    &.control-cancel {
+      color: $color-300;
+    }
+    &.control-confirm {
+      color: $color-500;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
