@@ -22,37 +22,50 @@ const App = () => {
     <div className="app__fixed">
       <div>
         <h1>{date.toLocaleString()}</h1>
-      </div>
-      <TimePicker
-        value={date}
-        minValue={new Date()}
-        onConfirm={(date) => setDate(new Date(date.value))}
-      />
-      <button onClick={() => setModal('time')}>Time</button>
-      <button onClick={() => setModal('date')}>Date</button>
-      <ModalPicker
-        isVisible={modal === 'time'}
-        toggleModal={() => setModal('')}
-      >
         <TimePicker
-          onCancel={() => setModal('')}
-          onConfirm={onTimeChanged}
           value={date}
           minValue={new Date()}
-          controls
+          onConfirm={(date) => setDate(new Date(date.value))}
         />
-      </ModalPicker>
-      <ModalPicker
-        isVisible={modal === 'date'}
-        onCancel={() => setModal('')}
-      >
+        <button onClick={() => setModal('time')}>Time</button>
+        <button onClick={() => setModal('date')}>Date</button>
+        <br />
+        <br />
+        <HourPicker />
+        <br />
         <DayPicker
           controls
           onCancel={() => setModal('')}
           onConfirm={onDateChanged}
           live
         />
-      </ModalPicker>
+        <br />
+        <ModalPicker
+          isVisible={modal === 'time'}
+          onCancel={() => setModal('')}
+          toggleModal={() => setModal('')}
+        >
+          <TimePicker
+            onCancel={() => setModal('')}
+            onConfirm={onTimeChanged}
+            value={date}
+            minValue={new Date()}
+            controls
+          />
+        </ModalPicker>
+        <ModalPicker
+          isVisible={modal === 'date'}
+          onCancel={() => setModal('')}
+          toggleModal={() => setModal('')}
+        >
+          <DayPicker
+            controls
+            onCancel={() => setModal('')}
+            onConfirm={onDateChanged}
+            live
+          />
+        </ModalPicker>
+      </div>
     </div>
   );
 };
