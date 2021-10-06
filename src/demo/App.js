@@ -6,6 +6,7 @@ import {
   HourPicker,
   ModalPicker,
 } from '../lib';
+import CommentInput from '../lib/components/comment-input';
 
 const App = () => {
   const [modal, setModal] = useState('');
@@ -22,22 +23,25 @@ const App = () => {
     <div className="app__fixed">
       <div>
         <h1>{date.toLocaleString()}</h1>
-        <TimePicker
-          value={date}
-          minValue={new Date()}
-          onConfirm={(date) => setDate(new Date(date.value))}
-        />
         <button onClick={() => setModal('time')}>Time</button>
         <button onClick={() => setModal('date')}>Date</button>
+
+        <CommentInput />
+
         <br />
         <br />
         <HourPicker />
         <br />
         <DayPicker
-          controls
           onCancel={() => setModal('')}
           onConfirm={onDateChanged}
           live
+        />
+        <br />
+        <TimePicker
+          value={date}
+          minValue={new Date()}
+          onConfirm={(date) => setDate(new Date(date.value))}
         />
         <br />
         <ModalPicker
