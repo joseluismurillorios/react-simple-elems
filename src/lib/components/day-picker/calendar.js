@@ -87,7 +87,7 @@ const Calendar = ({
         nodeRef={daysTransRef}
         in={edit === EDIT_DAY}
         timeout={FADE_MILLI}
-        classNames="transition-fade"
+        classNames="dp-fade"
         unmountOnExit
         mountOnEnter
       >
@@ -132,7 +132,7 @@ const Calendar = ({
         nodeRef={monthsTransRef}
         in={edit === EDIT_MONTH}
         timeout={FADE_MILLI}
-        classNames="transition-fade"
+        classNames="dp-fade"
         unmountOnExit
         mountOnEnter
       >
@@ -170,7 +170,7 @@ const Calendar = ({
         nodeRef={yearsTransRef}
         in={edit === EDIT_YEAR}
         timeout={FADE_MILLI}
-        classNames="transition-fade"
+        classNames="dp-fade"
         unmountOnExit
         mountOnEnter
       >

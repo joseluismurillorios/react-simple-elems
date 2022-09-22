@@ -1,6 +1,6 @@
 $fade: 0.5s;
 
-@keyframes transition-fadeIn {
+@keyframes hp-fadeIn {
   0% {
       opacity: 0.0;       
   }
@@ -9,7 +9,7 @@ $fade: 0.5s;
   }       
 }
 
-@keyframes transition-fadeOut {
+@keyframes hp-fadeOut {
   0% {
       opacity: 1;       
   }
@@ -18,34 +18,40 @@ $fade: 0.5s;
   }       
 }
 
-.transition-fade-appear {
-  &.transition-fade-appear-active {
-    animation-name: transition-fadeIn;
+.hp-fade-appear {
+  &.hp-fade-appear-active {
+    animation-name: hp-fadeIn;
     animation-duration: $fade;   
     animation-timing-function: ease-in-out; 
     visibility: visible !important; 
   }
 }
 
-.transition-fade-enter {
+.hp-fade-enter {
   opacity: 0;
+  position: relative;
   transition: all $fade ease-in-out;
-  &.transition-fade-enter-active {
+  &.hp-fade-enter-active {
     opacity: 1;
     transition: all $fade ease-in-out;
-    // position: absolute;
   }
   &-done {
     opacity: 1;
   }
 }
 
-.transition-fade-exit {
+.hp-fade-exit {
   opacity: 1;
-  transition: all $fade ease-in-out;
-  &.transition-fade-exit-active {
+  transition: opacity $fade ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  &.hp-fade-exit-active {
     opacity: 0;
-    transition: all $fade ease-in-out;
+    transition: opacity $fade ease-in-out;
     // position: absolute;
   }
 }

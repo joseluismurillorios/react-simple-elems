@@ -103,7 +103,7 @@ const HourPicker = ({
             nodeRef={hourTransRef}
             in={edit === EDIT_HOURS}
             timeout={FADE_MILLI}
-            classNames="transition-fade"
+            classNames="hp-fade"
             unmountOnExit
             mountOnEnter
           >
@@ -125,7 +125,7 @@ const HourPicker = ({
             nodeRef={minuteTransRef}
             in={edit === EDIT_MINUTES}
             timeout={FADE_MILLI}
-            classNames="transition-fade"
+            classNames="hp-fade"
             unmountOnExit
             mountOnEnter
           >
